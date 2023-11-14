@@ -39,7 +39,10 @@ public class ShootSlider : MonoBehaviour
                 if (isMovingRight)
                 {
                     Debug.Log(shootSlider.normalizedValue);
-                    Debug.Log(1 - shootSlider.normalizedValue <= validRange || shootSlider.normalizedValue <= validRange);
+                    if (!(1 - shootSlider.normalizedValue <= validRange || shootSlider.normalizedValue <= validRange))
+                    {
+                        HandlePlayerDeath();
+                    }
                 }
 
             }
@@ -86,5 +89,10 @@ public class ShootSlider : MonoBehaviour
             }
             yield return new WaitForSeconds(sliderShuffleDelay);
         }
+    }
+    private void HandlePlayerDeath()
+    {
+        // Add death animation and game over screen in here
+        Debug.Log("You died!");
     }
 }
