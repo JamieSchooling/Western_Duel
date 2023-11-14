@@ -231,8 +231,8 @@ MonoBehaviour:
   sliderShuffleDelay: 0.005
   canMove: 1
   validRange: 0.2
-  fill: {fileID: 699155545}
-  fill1: {fileID: 1733661682}
+  fillLeft: {fileID: 699155545}
+  fillRight: {fileID: 1733661682}
 --- !u!1 &665169581
 GameObject:
   m_ObjectHideFlags: 0
