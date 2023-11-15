@@ -21,6 +21,6 @@ public class Rounds : MonoBehaviour
 
     void Update()
     {
-        if (Playe)
+        //if (Playe)
     }
 }
