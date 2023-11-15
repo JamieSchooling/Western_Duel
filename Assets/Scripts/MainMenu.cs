@@ -5,21 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public AudioSource MenuSelect;
+    [SerializeField] private string _gameSceneName;
 
     // Start is called before the first frame update
     public void Play()
     {
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        MenuSelect.Play();
+        SceneManager.LoadSceneAsync(_gameSceneName);
     }
 
 
     public void Quit()
     {
         Application.Quit();
-        MenuSelect.Play();
-        Debug.Log("Player has Quit the game");
+        Debug.Log("Quit.");
 
     }
 }
