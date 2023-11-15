@@ -25,6 +25,8 @@ public class BulletTimelineStarter : MonoBehaviour
     private void StartBulletCam(int playerNumber)
     {
         _idleTimeline.Stop();
+        _player1BulletTimeline.Stop();
+        _player2BulletTimeline.Stop();
         if (playerNumber == 1)
         {
             Debug.Log("run");

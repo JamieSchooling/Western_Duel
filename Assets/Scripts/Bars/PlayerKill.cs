@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerKill : MonoBehaviour
@@ -27,7 +26,7 @@ public class PlayerKill : MonoBehaviour
 
     private void Kill(int playerNumber)
     {
-
+        failCount = 0;
         if (playerNumber == 1)
         {
             scoreP1++;
@@ -38,8 +37,6 @@ public class PlayerKill : MonoBehaviour
             scoreP2++;
             Debug.Log($"Player {playerNumber} Score: {scoreP2}");
         };
-
-        StartCoroutine(StartBars());
     }
 
     private IEnumerator StartBars()

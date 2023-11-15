@@ -114,8 +114,6 @@ public class ShootSlider : MonoBehaviour
                 else
                 {
                     _shootBarEventChannel.InvokeOnSliderFail(_playerNumber);
-
-                    _shootBarEventChannel.InvokeOnSliderStart();
                 }
 
             }
