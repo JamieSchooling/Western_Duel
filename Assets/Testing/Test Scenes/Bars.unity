@@ -595,7 +595,7 @@ PrefabInstance:
     - target: {fileID: 361530676469764845, guid: 5fe7b6e1fcc1d7342bd1caae8ba42b68,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 361530676469764845, guid: 5fe7b6e1fcc1d7342bd1caae8ba42b68,
         type: 3}
@@ -605,7 +605,7 @@ PrefabInstance:
     - target: {fileID: 361530676469764845, guid: 5fe7b6e1fcc1d7342bd1caae8ba42b68,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 361530676469764845, guid: 5fe7b6e1fcc1d7342bd1caae8ba42b68,
         type: 3}
@@ -660,7 +660,7 @@ PrefabInstance:
     - target: {fileID: 361530676469764845, guid: 5fe7b6e1fcc1d7342bd1caae8ba42b68,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 361530676469764845, guid: 5fe7b6e1fcc1d7342bd1caae8ba42b68,
         type: 3}
@@ -733,7 +733,7 @@ PrefabInstance:
     - target: {fileID: 552714715648775406, guid: 0514f42181ba8ca468734baffe7691ec,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 552714715648775406, guid: 0514f42181ba8ca468734baffe7691ec,
         type: 3}
@@ -743,7 +743,7 @@ PrefabInstance:
     - target: {fileID: 552714715648775406, guid: 0514f42181ba8ca468734baffe7691ec,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 552714715648775406, guid: 0514f42181ba8ca468734baffe7691ec,
         type: 3}
@@ -798,7 +798,7 @@ PrefabInstance:
     - target: {fileID: 552714715648775406, guid: 0514f42181ba8ca468734baffe7691ec,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -99.1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 552714715648775406, guid: 0514f42181ba8ca468734baffe7691ec,
         type: 3}
