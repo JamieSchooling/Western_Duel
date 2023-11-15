@@ -186,8 +186,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.635, y: 1}
-  m_AnchoredPosition: {x: 92.8, y: 0}
-  m_SizeDelta: {x: 70.2987, y: 0}
+  m_AnchoredPosition: {x: 30.6744, y: 0}
+  m_SizeDelta: {x: 655.1478, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3688710777838630419
 CanvasRenderer:
@@ -218,7 +218,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: d3f196f9febb0534b8e8a0440292abd8, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
@@ -254,8 +254,8 @@ RectTransform:
   m_GameObject: {fileID: 5938288262296822578}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2155089912344250469}
   - {fileID: 1903984369965022278}
@@ -287,7 +287,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -307,7 +307,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 5072954665072019034}
   m_FillRect: {fileID: 0}
   m_HandleRect: {fileID: 8506427659971950563}
@@ -334,7 +334,7 @@ MonoBehaviour:
   _shootBarEventChannel: {fileID: 11400000, guid: 6f866be4dc8321645929d9961e327e5a,
     type: 2}
   _sliderShuffleDelay: 0.005
-  _validRange: 0.15
+  _validRange: 0.05
   _fillLeft: {fileID: 8110721747194354891}
   _fillRight: {fileID: 7527745075850407161}
   _fillBackground: {fileID: 541879303823455317}
@@ -342,15 +342,6 @@ MonoBehaviour:
   _colourSuccessArea: {r: 0.109803915, g: 1, b: 0, a: 1}
   _colourFailArea: {r: 1, g: 0, b: 0, a: 1}
   _playerNumber: 1
-  RectLeft: {fileID: 7391630583596168062}
-  RectRight: {fileID: 5942450100603047416}
-  Indicate: {fileID: 8506427659971950563}
-  Lmax: {x: 0, y: 0, z: 0}
-  Lmin: {x: 0, y: 0, z: 0}
-  Rmax: {x: 0, y: 0, z: 0}
-  Rmin: {x: 0, y: 0, z: 0}
-  success: 0
-  randomFactor: 30
 --- !u!1 &8596742695473804899
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,8 +377,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 7.2784, y: 40.709}
+  m_AnchoredPosition: {x: -2.3373108, y: 0}
+  m_SizeDelta: {x: 2.6, y: 40.709}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1564970679662089256
 CanvasRenderer:
@@ -462,8 +453,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.635, y: 1}
-  m_AnchoredPosition: {x: -31.4, y: 0}
-  m_SizeDelta: {x: 70.2987, y: 0}
+  m_AnchoredPosition: {x: 30.7256, y: 0}
+  m_SizeDelta: {x: 655.1484, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5239106207814919996
 CanvasRenderer:
@@ -494,7 +485,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: d3f196f9febb0534b8e8a0440292abd8, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0

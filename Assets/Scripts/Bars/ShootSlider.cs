@@ -50,6 +50,9 @@ public class ShootSlider : MonoBehaviour
     {
         //MoveBars();
 
+        _fillLeft.fillAmount = _validRange;
+        _fillRight.fillAmount = _validRange;
+
         if (_isMiddleSlider)
         {
             _fillLeft.color = _colourFailArea;
@@ -92,9 +95,6 @@ public class ShootSlider : MonoBehaviour
     void Update()
     {
         //MoveBars();
-
-        _fillLeft.fillAmount = _validRange;
-        _fillRight.fillAmount = _validRange;
 
         SliderSafetyNet();
 
