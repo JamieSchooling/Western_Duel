@@ -9,7 +9,7 @@ public class PlayerKill : MonoBehaviour
     private int scoreP1 = 0;
     private int scoreP2 = 0;
 
-    private int failCount = 0;
+    public int failCount = 0;
 
     [SerializeField] private float barStartTime = 0.5f;
 
