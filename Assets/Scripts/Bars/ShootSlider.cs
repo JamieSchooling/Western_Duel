@@ -7,19 +7,24 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Slider))]
 public class ShootSlider : MonoBehaviour
 {
+    [SerializeField] private ShootBarEventChannel _shootBarEventChannel;
     [SerializeField] private float _sliderShuffleDelay = 0.1f;
     [Range(0f, 1f)]
     [SerializeField] private float _validRange = 0.15f;
     [SerializeField] private Image _fillLeft;
     [SerializeField] private Image _fillRight;
+    [SerializeField] private Image _fillBackground;
     [SerializeField] private bool _isMiddleSlider;
+    [SerializeField] private Color _colourSuccessArea = Color.green;
+    [SerializeField] private Color _colourFailArea = Color.red;
+    [Range(1, 2)]
+    [SerializeField] private int _playerNumber;
 
     private Slider _shootSlider;
     
     private bool _canMove;
     private bool _isMovingRight = true;
 
-    public event Action OnSliderSuccess;
 
     private void Awake()
     {
@@ -28,11 +33,44 @@ public class ShootSlider : MonoBehaviour
 
     void Start()
     {
-        //shootSlider.value = shootSlider.minValue;
-        Debug.Log(_shootSlider.value);
+        if (_isMiddleSlider)
+        {
+            _fillLeft.color = _colourFailArea;
+            _fillRight.color = _colourFailArea;
+            _fillBackground.color = _colourSuccessArea;
+        }
+        else
+        {
+
+            _fillLeft.color = _colourSuccessArea;
+            _fillRight.color = _colourSuccessArea;
+            _fillBackground.color = _colourFailArea;
+        }
+
         StartCoroutine(SliderShuffle());
     }
 
+
+    private void OnEnable()
+    {
+        _shootBarEventChannel.OnSliderStart += StartBar;
+        _shootBarEventChannel.OnSliderSuccess += StopBar;
+    }
+
+    private void OnDisable()
+    {
+        _shootBarEventChannel.OnSliderSuccess -= StopBar;
+    }
+
+    private void StartBar()
+    {
+        StartCoroutine(SliderShuffle());
+    }
+
+    private void StopBar(int playerNumber)
+    {
+        _canMove = false;
+    }
 
     void Update()
     {
@@ -41,7 +79,7 @@ public class ShootSlider : MonoBehaviour
 
         SliderSafetyNet();
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if ((_playerNumber == 1 && Input.GetKeyDown(KeyCode.Space)) || (_playerNumber == 2 && Input.GetKeyDown(KeyCode.KeypadEnter)))
         {
             if (_canMove)
             {
@@ -51,13 +89,13 @@ public class ShootSlider : MonoBehaviour
                 if (isInRangeEdge || isInRangeMiddle)
                 {
                     Debug.Log("Success.");
-                    OnSliderSuccess?.Invoke();
+                    _shootBarEventChannel.InvokeOnSliderSuccess(_playerNumber);
+                }
+                else
+                {
+                    _shootBarEventChannel.InvokeOnSliderFail(_playerNumber);
                 }
 
-            }
-            else
-            {
-                StartCoroutine(SliderShuffle());
             }
         }
     }
@@ -77,6 +115,7 @@ public class ShootSlider : MonoBehaviour
     private IEnumerator SliderShuffle()
     {
         _canMove = true;
+        _shootSlider.value = _shootSlider.minValue;
         while (_canMove)
         {
             if (_isMovingRight)
