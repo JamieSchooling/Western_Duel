@@ -1,48 +1,57 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Slider))]
 public class ShootSlider : MonoBehaviour
 {
-    [SerializeField] private Slider shootSlider;
-    [SerializeField] private float sliderShuffleDelay = 0.1f;
-    [SerializeField] private bool canMove;
+    [SerializeField] private float _sliderShuffleDelay = 0.1f;
     [Range(0f, 1f)]
-    [SerializeField] private float validRange = 0.15f;
-    [SerializeField] Image fillLeft;
-    [SerializeField] Image fillRight;
+    [SerializeField] private float _validRange = 0.15f;
+    [SerializeField] private Image _fillLeft;
+    [SerializeField] private Image _fillRight;
+    [SerializeField] private bool _isMiddleSlider;
 
-    private bool isMovingRight = true;
+    private Slider _shootSlider;
+    
+    private bool _canMove;
+    private bool _isMovingRight = true;
+
+    public event Action OnSliderSuccess;
+
+    private void Awake()
+    {
+        _shootSlider = GetComponent<Slider>();
+    }
 
     void Start()
     {
         //shootSlider.value = shootSlider.minValue;
-        Debug.Log(shootSlider.value);
+        Debug.Log(_shootSlider.value);
         StartCoroutine(SliderShuffle());
     }
 
 
     void Update()
     {
-        fillLeft.fillAmount = validRange;
-        fillRight.fillAmount = validRange;
+        _fillLeft.fillAmount = _validRange;
+        _fillRight.fillAmount = _validRange;
 
         SliderSafetyNet();
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (canMove)
+            if (_canMove)
             {
-                canMove = false;
-                if (isMovingRight)
+                _canMove = false;
+                bool isInRangeEdge = !_isMiddleSlider && (_shootSlider.normalizedValue <= _validRange || _shootSlider.normalizedValue >= 1 - _validRange);
+                bool isInRangeMiddle = _isMiddleSlider && _shootSlider.normalizedValue > _validRange && _shootSlider.normalizedValue < 1 - _validRange;
+                if (isInRangeEdge || isInRangeMiddle)
                 {
-                    Debug.Log(shootSlider.normalizedValue);
-                    if (!(1 - shootSlider.normalizedValue <= validRange || shootSlider.normalizedValue <= validRange))
-                    {
-                        HandlePlayerDeath();
-                    }
+                    Debug.Log("Success.");
+                    OnSliderSuccess?.Invoke();
                 }
 
             }
@@ -55,44 +64,39 @@ public class ShootSlider : MonoBehaviour
 
     private void SliderSafetyNet()
     {
-        if (shootSlider.value < shootSlider.minValue)
+        if (_shootSlider.value < _shootSlider.minValue)
         {
-            shootSlider.value = shootSlider.minValue;
+            _shootSlider.value = _shootSlider.minValue;
         }
-        if (shootSlider.value > shootSlider.maxValue)
+        if (_shootSlider.value > _shootSlider.maxValue)
         {
-            shootSlider.value = shootSlider.maxValue;
+            _shootSlider.value = _shootSlider.maxValue;
         }
     }
 
     private IEnumerator SliderShuffle()
     {
-        canMove = true;
-        while (canMove)
+        _canMove = true;
+        while (_canMove)
         {
-            if (isMovingRight)
+            if (_isMovingRight)
             {
-                shootSlider.value++;
+                _shootSlider.value++;
             }
             else
             {
-                shootSlider.value--;
+                _shootSlider.value--;
             }
 
-            if (shootSlider.value >= shootSlider.maxValue)
+            if (_shootSlider.value >= _shootSlider.maxValue)
             {
-                isMovingRight = false;
+                _isMovingRight = false;
             }
-            else if (shootSlider.value <= shootSlider.minValue)
+            else if (_shootSlider.value <= _shootSlider.minValue)
             {
-                isMovingRight = true;
+                _isMovingRight = true;
             }
-            yield return new WaitForSeconds(sliderShuffleDelay);
+            yield return new WaitForSeconds(_sliderShuffleDelay);
         }
-    }
-    private void HandlePlayerDeath()
-    {
-        // Add death animation and game over screen in here
-        Debug.Log("You died!");
     }
 }
